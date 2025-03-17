@@ -30,6 +30,20 @@
     </style>
 </head>
 <body>
+    <button id="fullscreen-btn">Tela Cheia</button>
+
+<script>
+  document.getElementById("fullscreen-btn").addEventListener("click", function() {
+    let elem = document.documentElement; // Pega a tela inteira do documento
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        alert(`Erro ao ativar tela cheia: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>
     <h1>Meu Jogo Flash</h1>
     <div id="game-container">
         <script>
