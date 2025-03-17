@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>one chance</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            display: inline-block;
+            position: relative;
+        }
+        #fullscreen-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        #fullscreen-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meu Jogo Flash</h1>
+    <div id="game-container">
+        <script>
+            window.RufflePlayer = window.RufflePlayer || {};
+            window.addEventListener("DOMContentLoaded", () => {
+                const ruffle = window.RufflePlayer.newest();
+                const player = ruffle.createPlayer();
+                player.id = "flash-player";
+                player.style.width = "800px";
+                player.style.height = "600px";
+                document.getElementById("game-container").appendChild(player);
+                player.load("One Chance.swf"); // Substitua pelo nome do seu arquivo SWF
+
+                // Função para alternar entre tela cheia e normal
+                document.getElementById("fullscreen-btn").addEventListener("click", () => {
+                    if (!document.fullscreenElement) {
+                        player.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                });
+            });
+        </script>
+    </div>
+    <br>
+    <button id="fullscreen-btn">Tela Cheia</button>
+</body>
+</html>
