@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Chance - Jogos Flash</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #111;
+            padding: 20px;
+            border: 2px solid red;
+        }
+        h1 {
+            color: red;
+            text-shadow: 2px 2px black;
+        }
+        .game-container {
+            margin: 20px 0;
+        }
+        .comments {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>One Chance</h1>
+        <p>Salve o mundo ou aproveite seus últimos dias. Cada escolha importa.</p>
+        <div class="game-container">
+            <embed src="1.swf" width="640" height="480"></embed>
+        </div>
+        <h2>Comentários</h2>
+        <div class="comments">
+            <textarea id="commentBox" placeholder="Escreva seu comentário..." rows="4" cols="50"></textarea>
+            <br>
+            <button onclick="addComment()">Enviar</button>
+            <div id="commentSection"></div>
+        </div>
+    </div>
+    <script>
+        function addComment() {
+            let commentBox = document.getElementById("commentBox");
+            let commentSection = document.getElementById("commentSection");
+            if (commentBox.value.trim() !== "") {
+                let newComment = document.createElement("p");
+                newComment.textContent = commentBox.value;
+                newComment.style.borderTop = "1px solid red";
+                newComment.style.paddingTop = "5px";
+                commentSection.appendChild(newComment);
+                commentBox.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
