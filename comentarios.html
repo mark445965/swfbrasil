@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Comentários</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f2f2f2; }
+        .container { width: 50%; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        textarea { width: 90%; height: 100px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background: blue; color: white; border: none; cursor: pointer; }
+        .comment-box { margin-top: 10px; padding: 10px; background: #ddd; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Seção de Comentários</h2>
+        <textarea id="commentText" placeholder="Digite seu comentário"></textarea><br>
+        <button onclick="addComment()">Enviar</button>
+        <div id="comments"></div>
+    </div>
+
+    <script>
+        function loadComments() {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            let commentSection = document.getElementById("comments");
+            commentSection.innerHTML = "";
+            comments.forEach(comment => {
+                let div = document.createElement("div");
+                div.classList.add("comment-box");
+                div.innerHTML = comment;
+                commentSection.appendChild(div);
+            });
+        }
+
+        function addComment() {
+            let commentText = document.getElementById("commentText").value;
+            if (commentText.trim() === "") return;
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push(commentText);
+            localStorage.setItem("comments", JSON.stringify(comments));
+            document.getElementById("commentText").value = "";
+            loadComments();
+        }
+
+        window.onload = loadComments;
+    </script>
+</body>
+</html>
