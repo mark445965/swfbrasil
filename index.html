@@ -11,8 +11,29 @@
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
         <a href="jogos.html">Clique aqui para jogar</a>
     </div>
-    
-  <iframe width="560" height="315" src="https://youtu.be/_Z5-P9v3F8w?si=bN5uRsODkkX1WtY7" frameborder="0" allow="autoplay"></iframe>
+  <audio id="musica" autoplay>
+    <source id="source" src="musica1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Lista de músicas
+    const playlist = ["musica1.mp3", "musica2.mp3", "musica3.mp3"];
+    let index = 0; // Índice da música atual
+
+    const audio = document.getElementById("musica");
+    const source = document.getElementById("source");
+
+    // Quando a música termina, toca a próxima
+    audio.onended = function () {
+        index = (index + 1) % playlist.length; // Passa para a próxima música
+        source.src = playlist[index];
+        audio.load(); // Recarrega o áudio com a nova música
+        audio.play(); // Toca a nova música
+    };
+</script>
+
+
+
 
 <script>
     document.getElementById('musica').volume = 0.5; // Ajusta o volume para 50%
