@@ -11,6 +11,37 @@
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
         <a href="jogos.html">Clique aqui para jogar</a>
     </div>
+    <audio id="musica">
+    <source src="ALL MY FELLAS(MP3_160K).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function tocarMusicaEmHorario() {
+        let agora = new Date();
+        let horas = agora.getHours();
+        let minutos = agora.getMinutes();
+
+        // Defina os horários desejados no formato [hora, minuto]
+        let horarios = [
+            [14, 30], // Toca às 14:30
+            [18, 0],  // Toca às 18:00
+            [22, 15]  // Toca às 22:15
+        ];
+
+        let audio = document.getElementById("musica");
+
+        // Verifica se o horário atual está na lista e toca a música
+        horarios.forEach(horario => {
+            if (horas === horario[0] && minutos === horario[1]) {
+                audio.play();
+            }
+        });
+    }
+
+    // Verifica o horário a cada 30 segundos
+    setInterval(tocarMusicaEmHorario, 30000);
+</script>
+
 </body>
     <p>ola seja bem vindo ao swf brasil</p>  
     <p>os  codigos foram feitos ultlizando</p>
