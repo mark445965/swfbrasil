@@ -40,28 +40,41 @@
         <p>Salve o mundo ou aproveite seus últimos dias. Cada escolha importa.</p>
         <div class="game-container">
             <embed src="1.swf" width="640" height="480"></embed>
-        </div>
-        <h2>Comentários</h2>
-        <div class="comments">
-            <textarea id="commentBox" placeholder="Escreva seu comentário..." rows="4" cols="50"></textarea>
-            <br>
-            <button onclick="addComment()">Enviar</button>
-            <div id="commentSection"></div>
-        </div>
-    </div>
-    <script>
-        function addComment() {
-            let commentBox = document.getElementById("commentBox");
-            let commentSection = document.getElementById("commentSection");
-            if (commentBox.value.trim() !== "") {
-                let newComment = document.createElement("p");
-                newComment.textContent = commentBox.value;
-                newComment.style.borderTop = "1px solid red";
-                newComment.style.paddingTop = "5px";
-                commentSection.appendChild(newComment);
-                commentBox.value = "";
-            }
-        }
-    </script>
+            <div class="game-container">
+    <embed src="3.swf" width="800" height="640"></embed>
+</div>
+
+<!-- Sistema de Avaliação -->
+<h2>Avalie este jogo</h2>
+<button onclick="registrarVoto('bom')">👍 Bom</button>
+<button onclick="registrarVoto('ruim')">👎 Ruim</button>
+<button onclick="registrarVoto('otimo')">⭐ Ótimo</button>
+
+<!-- Exibir a contagem de votos -->
+<p>Bom: <span id="bom">0</span></p>
+<p>Ruim: <span id="ruim">0</span></p>
+<p>Ótimo: <span id="otimo">0</span></p>
+<script>
+    // Função para registrar os votos no localStorage
+    function registrarVoto(tipo) {
+        let votos = JSON.parse(localStorage.getItem('votos')) || { bom: 0, ruim: 0, otimo: 0 };
+        votos[tipo]++;
+        localStorage.setItem('votos', JSON.stringify(votos));
+        atualizarContagem();
+    }
+
+    // Atualizar os números dos votos na tela
+    function atualizarContagem() {
+        let votos = JSON.parse(localStorage.getItem('votos')) || { bom: 0, ruim: 0, otimo: 0 };
+        document.getElementById("bom").textContent = votos.bom;
+        document.getElementById("ruim").textContent = votos.ruim;
+        document.getElementById("otimo").textContent = votos.otimo;
+    }
+
+    // Carregar contagem ao abrir a página
+    atualizarContagem();
+</script>
+
+        
 </body>
 </html>
