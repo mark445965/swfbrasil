@@ -41,6 +41,24 @@
     <p>os  codigos foram feitos ultlizando</p>
     <p>o chat gpt</p>
     <h1>Jogos mais votados</h1>
+    <script>
+    function carregarRanking() {
+        let votos = JSON.parse(localStorage.getItem('votos')) || {};
+        let jogos = Object.values(votos);
+
+        // Ordenar os jogos pelo total de votos somados
+        jogos.sort((a, b) => (b.bom + b.otimo) - (a.bom + a.otimo));
+
+        let rankingHTML = "";
+        jogos.forEach(jogo => {
+            rankingHTML += `<li><strong>${jogo.nome}</strong> - 👍 ${jogo.bom} | ⭐ ${jogo.otimo} | 👎 ${jogo.ruim}</li>`;
+        });
+
+        document.getElementById("ranking").innerHTML = rankingHTML;
+    }
+
+    carregarRanking();
+</script>
 <ul id="ranking"></ul>
     <script>
 function rateGame(gameId, nota) {
