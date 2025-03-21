@@ -35,7 +35,14 @@
         <p>nao sei o que colocar</p>
         <div class="game-container">
             <embed src="3.swf" width="800" height="640"></embed>
+            <div class="rating">
+    <button onclick="rateGame('ruim')">Ruim</button>
+    <button onclick="rateGame('bom')">Bom</button>
+    <button onclick="rateGame('otimo')">Ótimo</button>
+</div>
+
             <div class="game-container">
+                
    </div>
 
 <script>
@@ -65,6 +72,15 @@
 
     atualizarContagem(); // Carregar os votos ao abrir a página
 </script>
+            <script>
+function rateGame(nota) {
+    let votos = JSON.parse(localStorage.getItem('votos')) || { ruim: 0, bom: 0, otimo: 0 };
+    votos[nota]++;
+    localStorage.setItem('votos', JSON.stringify(votos));
+    alert('Obrigado por votar! Sua avaliação foi: ' + nota);
+}
+</script>
+
 
         </body>
 </html>
