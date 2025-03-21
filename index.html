@@ -36,38 +36,6 @@
 
 
 
-<script>
-    document.getElementById('musica').volume = 0.5; // Ajusta o volume para 50%
-</script>
-    <h2>Jogos mais votados</h2>
-<ul id="ranking"></ul>
-
-<script>
-    function carregarRanking() {
-        let votos = JSON.parse(localStorage.getItem('votos')) || {};
-        let jogos = Object.keys(votos).map(jogo => ({
-            nome: jogo,
-            pontuacao: votos[jogo].otimo * 3 + votos[jogo].bom * 2 - votos[jogo].ruim
-        }));
-
-        // Ordena os jogos pela pontuação
-        jogos.sort((a, b) => b.pontuacao - a.pontuacao);
-
-        // Exibe os 3 melhores jogos
-        let rankingHTML = "";
-        jogos.slice(0, 3).forEach(jogo => {
-            rankingHTML += `<li>${jogo.nome} - Pontos: ${jogo.pontuacao}</li>`;
-        });
-
-        document.getElementById("ranking").innerHTML = rankingHTML;
-    }
-
-    carregarRanking();
-</script>
-
-
-
-
 </body>
     <p>ola seja bem vindo ao swf brasil</p>  
     <p>os  codigos foram feitos ultlizando</p>
