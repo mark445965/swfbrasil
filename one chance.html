@@ -44,6 +44,12 @@
     </div>
 <!-- Sistema de Avaliação -->
 <h2>Avalie este jogo</h2>
+            <div class="rating">
+    <button onclick="rateGame('ruim')">Ruim</button>
+    <button onclick="rateGame('bom')">Bom</button>
+    <button onclick="rateGame('otimo')">Ótimo</button>
+</div>
+
 <script>
 function rateGame(gameId, nota) {
     let votos = JSON.parse(localStorage.getItem('votos')) || {};
