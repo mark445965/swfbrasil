@@ -41,6 +41,13 @@
     <p>os  codigos foram feitos ultlizando</p>
     <p>o chat gpt</p>
    <h1>busca</h1>
+<ul id="lista">
+    <li>one chance</li>
+    <li>Silent Hill 2</li>
+    <li>Dark Souls</li>
+    <li>Bloodborne</li>
+    <li>Outlast</li>
+</ul>
 <input type="text" id="search" placeholder="Buscar..." onkeyup="buscar()">
     function buscar() {
     let input = document.getElementById("search").value.toLowerCase();
@@ -51,15 +58,6 @@
         item.style.display = texto.includes(input) ? "block" : "none";
     });
 }
-
-<ul id="lista">
-    <li>one chance</li>
-    <li>Silent Hill 2</li>
-    <li>Dark Souls</li>
-    <li>Bloodborne</li>
-    <li>Outlast</li>
-</ul>
-
 
 
 </html>
