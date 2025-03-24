@@ -6,47 +6,36 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="https://unpkg.com/ruffle"></script>
 </head>
-    <img id="custom-cursor" src="cursor.gif" alt="Cursor Animado">
-   <style>
-        #custom-cursor {
-    position: absolute;
-    width: 32px; /* Ajuste o tamanho do cursor */
-    height: 32px;
-    pointer-events: none; /* Para não interferir nos cliques */
-}
+    
 
-    </style>
 <body>
     <div class="container">
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
         <a href="jogos.html">Clique aqui para jogar</a>
     </div>
       <img src="wel.gif" alt="Welcome" />
-  <audio id="musica" autoplay>
-    <source id="source" src="OTONABLUE - ATARASHII GAKKO!.mp3" type="audio/mpeg">
+ <audio id="musica" autoplay loop>
+    <source src="OTONABLUE - ATARASHII GAKKO.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
 </audio>
 
+<button id="playPauseBtn">⏸ Pausar</button>
+
 <script>
-    document.addEventListener("mousemove", function(event) {
-    let cursor = document.getElementById("custom-cursor");
-    cursor.style.left = event.pageX + "px";
-    cursor.style.top = event.pageY + "px";
-});
+     let musica = document.getElementById("musica");
+    let playPauseBtn = document.getElementById("playPauseBtn");
 
-    // Lista de músicas
-    const playlist = ["OTONABLUE - ATARASHII GAKKO!.mp3", "ALL MY FELLAS(MP3_160K).mp3", "musica3.mp3"];
-    let index = 0; // Índice da música atual
-
-    const audio = document.getElementById("musica");
-    const source = document.getElementById("source");
-
-    // Quando a música termina, toca a próxima
-    audio.onended = function () {
-        index = (index + 1) % playlist.length; // Passa para a próxima música
-        source.src = playlist[index];
-        audio.load(); // Recarrega o áudio com a nova música
-        audio.play(); // Toca a nova música
-   };
+    playPauseBtn.addEventListener("click", function() {
+        if (musica.paused) {
+            musica.play();
+            playPauseBtn.innerHTML = "⏸ Pausar";
+        } else {
+            musica.pause();
+            playPauseBtn.innerHTML = "▶️ Tocar";
+        }
+    });
+   
+   
    </script>
 
 
