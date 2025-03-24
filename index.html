@@ -40,62 +40,16 @@
     <p>ola seja bem vindo ao swf brasil</p>  
     <p>os  codigos foram feitos ultlizando</p>
     <p>o chat gpt</p>
-    <h1>Jogos mais votados</h1>
-    <script>
-    function carregarRanking() {
-        let votos = JSON.parse(localStorage.getItem('votos')) || {};
-        let jogos = Object.values(votos);
+   <h1>busca</h1>
+<input type="text" id="search" placeholder="Buscar..." onkeyup="buscar()">
 
-        // Ordenar os jogos pelo total de votos somados
-        jogos.sort((a, b) => (b.bom + b.otimo) - (a.bom + a.otimo));
-
-        let rankingHTML = "";
-        jogos.forEach(jogo => {
-            rankingHTML += `<li><strong>${jogo.nome}</strong> - 👍 ${jogo.bom} | ⭐ ${jogo.otimo} | 👎 ${jogo.ruim}</li>`;
-        });
-
-        document.getElementById("ranking").innerHTML = rankingHTML;
-    }
-
-    carregarRanking();
-</script>
-<ul id="ranking"></ul>
-    <script>
-function rateGame(gameId, nota) {
-    let votos = JSON.parse(localStorage.getItem('votos')) || {};
-
-    // Se o jogo ainda não foi votado, inicializa os votos
-    if (!votos[gameId]) {
-        votos[gameId] = { ruim: 0, bom: 0, otimo: 0 };
-    }
-
-    votos[gameId][nota]++;
-
-    localStorage.setItem('votos', JSON.stringify(votos));
-
-    alert('Obrigado por votar! Sua avaliação foi: ' + nota);
-}
-
-// Função para carregar os jogos mais votados
-function carregarMaisVotados() {
-    let votos = JSON.parse(localStorage.getItem('votos')) || {};
-    let jogosOrdenados = Object.entries(votos).sort((a, b) => {
-        let totalA = a[1].bom + a[1].otimo - a[1].ruim;
-        let totalB = b[1].bom + b[1].otimo - b[1].ruim;
-        return totalB - totalA;
-    });
-
-    let lista = document.getElementById('maisVotados');
-    lista.innerHTML = '';
-
-    jogosOrdenados.slice(0, 3).forEach(([gameId, votos]) => {
-        lista.innerHTML += `<li><strong>${gameId}</strong> - 👍 ${votos.bom} | ⭐ ${votos.otimo} | 👎 ${votos.ruim}</li>`;
-    });
-}
-
-// Chama a função ao carregar a página
-document.addEventListener('DOMContentLoaded', carregarMaisVotados);
-</script>
+<ul id="lista">
+    <li>one chance</li>
+    <li>Silent Hill 2</li>
+    <li>Dark Souls</li>
+    <li>Bloodborne</li>
+    <li>Outlast</li>
+</ul>
 
 
 
