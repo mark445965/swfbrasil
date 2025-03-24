@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="https://unpkg.com/ruffle"></script>
 </head>
+    <img id="custom-cursor" src="cursor.gif" alt="Cursor Animado">
+   <style>
+        #custom-cursor {
+    position: absolute;
+    width: 32px; /* Ajuste o tamanho do cursor */
+    height: 32px;
+    pointer-events: none; /* Para não interferir nos cliques */
+}
+
+    </style>
 <body>
     <div class="container">
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
@@ -17,6 +27,12 @@
 </audio>
 
 <script>
+    document.addEventListener("mousemove", function(event) {
+    let cursor = document.getElementById("custom-cursor");
+    cursor.style.left = event.pageX + "px";
+    cursor.style.top = event.pageY + "px";
+});
+
     // Lista de músicas
     const playlist = ["OTONABLUE - ATARASHII GAKKO!.mp3", "ALL MY FELLAS(MP3_160K).mp3", "musica3.mp3"];
     let index = 0; // Índice da música atual
