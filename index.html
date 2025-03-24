@@ -5,60 +5,57 @@
     <title>Jogos Flash Retrô</title>
     <link rel="stylesheet" href="estilo.css">
     <script src="https://unpkg.com/ruffle"></script>
-</head>
-   <img id="custom-cursor" src="hello kitty 1.cur" alt="Cursor Animado">
-   
-<style>
-  body {
-    cursor: url('hello kitty 1.cur'), auto;
-}
 
-</style>
+    <style>
+        /* Cursor personalizado */
+        body {
+            cursor: url('hello_kitty_1.cur'), auto;
+        }
+
+        /* Player de música */
+        #playPauseBtn {
+            display: block;
+            margin: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
 <body>
     <div class="container">
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
         <a href="jogos.html">Clique aqui para jogar</a>
+        <p>Olá, seja bem-vindo ao SWF Brasil</p>  
+        <p>Os códigos foram feitos utilizando o ChatGPT</p>
+
+        <!-- Imagem de boas-vindas -->
+        <img src="wel.gif" alt="Welcome" />
+
+        <!-- Áudio e botão de controle -->
+        <audio id="musica" loop>
+            <source src="OTONABLUE - ATARASHII GAKKO!.mp3" type="audio/mp3">
+            Seu navegador não suporta áudio.
+        </audio>
+        <button id="playPauseBtn">▶️ Tocar</button>
     </div>
-      <img src="wel.gif" alt="Welcome" />
- <audio id="musica" loop>
-    <source src="OTONABLUE - ATARASHII GAKKO!.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio.
-</audio>
 
-<button id="playPauseBtn">▶️ Tocar</button>
+    <script>
+        // Música - Play/Pause
+        let musica = document.getElementById("musica");
+        let playPauseBtn = document.getElementById("playPauseBtn");
 
-<script>
-    let musica = document.getElementById("musica");
-    let playPauseBtn = document.getElementById("playPauseBtn");
+        playPauseBtn.addEventListener("click", function() {
+            if (musica.paused) {
+                musica.play();
+                playPauseBtn.innerHTML = "⏸ Pausar";
+            } else {
+                musica.pause();
+                playPauseBtn.innerHTML = "▶️ Tocar";
+            }
+        });
 
-    playPauseBtn.addEventListener("click", function() {
-        if (musica.paused) {
-            musica.play();
-            playPauseBtn.innerHTML = "⏸ Pausar";
-        } else {
-            musica.pause();
-            playPauseBtn.innerHTML = "▶️ Tocar";
-        }
-    });
-    document.addEventListener("mousemove", function(event) {
-    let cursor = document.getElementById("custom-cursor");
-    cursor.style.left = event.pageX + "px";
-    cursor.style.top = event.pageY + "px";
-});
-</script>
-
-
-
-
-
-
+    </script>
 </body>
-    <p>ola seja bem vindo ao swf brasil</p>  
-    <p>os  codigos foram feitos ultlizando</p>
-    <p>o chat gpt</p>
-
-
-
-
 </html>
