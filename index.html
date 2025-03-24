@@ -41,6 +41,16 @@
         item.style.display = texto.includes(input) ? "block" : "none";
     });
 }
+    <input type="text" id="search" placeholder="Buscar..." onkeyup="buscar()">
+    function buscar() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let itens = document.querySelectorAll("#lista li");
+
+    itens.forEach(item => {
+        let texto = item.textContent.toLowerCase();
+        item.style.display = texto.includes(input) ? "block" : "none";
+    });
+}
 
 </script>
 
@@ -59,16 +69,7 @@
     <li>Bloodborne</li>
     <li>Outlast</li>
 </ul>
-<input type="text" id="search" placeholder="Buscar..." onkeyup="buscar()">
-    function buscar() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let itens = document.querySelectorAll("#lista li");
 
-    itens.forEach(item => {
-        let texto = item.textContent.toLowerCase();
-        item.style.display = texto.includes(input) ? "block" : "none";
-    });
-}
 
 
 </html>
