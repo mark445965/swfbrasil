@@ -6,8 +6,17 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="https://unpkg.com/ruffle"></script>
 </head>
-    
+   <img id="custom-cursor" src="cursor.gif" alt="Cursor Animado">
+   
+<style>
+    #custom-cursor {
+    position: absolute;
+    width: 32px; /* Ajuste o tamanho do cursor */
+    height: 32px;
+    pointer-events: none; /* Para não interferir nos cliques */
+}
 
+</style>
 <body>
     <div class="container">
         <h1>Bem-vindo ao Site Retrô de Jogos Flash!</h1>
@@ -34,10 +43,14 @@
             playPauseBtn.innerHTML = "▶️ Tocar";
         }
     });
+    document.addEventListener("mousemove", function(event) {
+    let cursor = document.getElementById("custom-cursor");
+    cursor.style.left = event.pageX + "px";
+    cursor.style.top = event.pageY + "px";
+});
 </script>
 
-   
-   </script>
+
 
 
 
