@@ -14,15 +14,15 @@
         <a href="jogos.html">Clique aqui para jogar</a>
     </div>
       <img src="wel.gif" alt="Welcome" />
- <audio id="musica" autoplay loop>
-    <source src="OTONABLUE - ATARASHII GAKKO.mp3" type="audio/mp3">
+ <audio id="musica" loop>
+    <source src="OTONABLUE - ATARASHII GAKKO!.mp3" type="audio/mp3">
     Seu navegador não suporta áudio.
 </audio>
 
-<button id="playPauseBtn">⏸ Pausar</button>
+<button id="playPauseBtn">▶️ Tocar</button>
 
 <script>
-     let musica = document.getElementById("musica");
+    let musica = document.getElementById("musica");
     let playPauseBtn = document.getElementById("playPauseBtn");
 
     playPauseBtn.addEventListener("click", function() {
@@ -34,7 +34,8 @@
             playPauseBtn.innerHTML = "▶️ Tocar";
         }
     });
-   
+</script>
+
    
    </script>
 
