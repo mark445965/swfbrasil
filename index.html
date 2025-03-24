@@ -9,13 +9,22 @@
    <img id="custom-cursor" src="hk24.gif" alt="Cursor Animado">
    
 <style>
-    #custom-cursor {
-    position: absolute;
-    width: 32px; /* Ajuste o tamanho do cursor */
-    height: 32px;
-    pointer-events: none; /* Para não interferir nos cliques */
-}
+   /* Esconder o cursor padrão */
+  body {
+      cursor: none;
+  }
 
+  /* Estilizar o cursor animado */
+  #cursor {
+      width: 32px;  /* Tamanho do cursor */
+      height: 32px;
+      background: url('cursor-animado.gif') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      pointer-events: none;
+      z-index: 1000;
+  }
+</style>
 </style>
 <body>
     <div class="container">
