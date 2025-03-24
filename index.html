@@ -30,7 +30,18 @@
         source.src = playlist[index];
         audio.load(); // Recarrega o áudio com a nova música
         audio.play(); // Toca a nova música
-    };
+   };
+    <input type="text" id="search" placeholder="Buscar..." onkeyup="buscar()">
+    function buscar() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let itens = document.querySelectorAll("#lista li");
+
+    itens.forEach(item => {
+        let texto = item.textContent.toLowerCase();
+        item.style.display = texto.includes(input) ? "block" : "none";
+    });
+}
+
 </script>
 
 
